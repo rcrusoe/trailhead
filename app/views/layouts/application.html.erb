@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Trailhead Camp</title>
+    <%= favicon_link_tag 'hut.ico' %>
+    <%= csrf_meta_tags %>
+
+    <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
+    <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+
+    <!-- Mobile Viewport -->
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+  </head>
+
+  <body>
+    <div class="container">
+        <div class="left">
+            <%= render 'shared/nav' %>
+            <%= yield %>
+        </div>
+        <div class="right">
+            <div class="gallery">
+                <div class="image-group">
+                    <%= image_tag "6.jpg" %>
+                    <%= image_tag "8.jpg" %>
+                </div>
+                <div class="image-group">
+                    <%= image_tag "5.jpg" %>
+                    <%= image_tag "10.jpg" %>
+                </div>
+                <div class="image-group">
+                    <%= image_tag "12.jpg" %>
+                    <%= image_tag "9.jpg" %>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+      carouselTimer();
+    </script>
+  </body>
+</html>

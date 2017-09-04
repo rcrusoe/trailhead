@@ -1,0 +1,383 @@
+/*
+ * This is a manifest file that'll be compiled into application.css, which will include all the files
+ * listed below.
+ *
+ * Any CSS and SCSS file within this directory, lib/assets/stylesheets, or any plugin's
+ * vendor/assets/stylesheets directory can be referenced here using a relative path.
+ *
+ * You're free to add application-wide styles to this file and they'll appear at the bottom of the
+ * compiled file so the styles you add here take precedence over styles defined in any other CSS/SCSS
+ * files in this directory. Styles in this file should be added after the last require_* statement.
+ * It is generally better to create a new file per style scope.
+ *
+ *= require_tree .
+ *= require_self
+ */
+
+ /*
+ Table of contents
+ ----------------------
+ // Variables
+ // Normalize
+ // Layout
+ // Typography
+ // Utilities
+ // Animations
+ // Homepage
+ ----------------------
+ */
+
+ /* Variables
+–––––––––––––––––––––––––––––––––––––––––––––––––– */
+
+$blue: #469ee7;
+$red: #e74657;
+$orange: #e7B246;
+$black: #333;
+$gray-80: #68696e;
+$gray-40: #cdced1;
+$shadow: 0 4px 10px 0 rgba(54, 56, 60, .20);
+
+$main-font: 'Avenir', sans-serif;
+$roman: 300;
+$medium: 400;
+$heavy: 500;
+
+$desktop: 1000px;
+
+
+ /* Normalize
+–––––––––––––––––––––––––––––––––––––––––––––––––– */
+
+ html {
+     font-size: 10px;
+ }
+
+ body {
+     color: $black;
+     font-size: 1.4rem;
+     margin: 0;
+ }
+
+ /* Layout
+–––––––––––––––––––––––––––––––––––––––––––––––––– */
+
+ .container {
+     @media (min-width: $desktop) {
+         display: grid;
+         grid: auto / repeat(2, 1fr);
+     }
+ }
+
+.left {
+    @media (min-width: $desktop) {
+        display: grid;
+        grid: 4.5rem auto auto 9rem / repeat(12, 1fr);
+        grid-gap: 0 20px;
+    }
+    margin: 2.7rem;
+}
+
+.right {
+    min-height: 100vh;
+
+    @media (min-width: $desktop){
+        height: 100vh;
+        overflow: hidden;
+        position: fixed;
+        left: 50%;
+    }
+}
+
+/* Typography
+–––––––––––––––––––––––––––––––––––––––––––––––––– */
+
+html {
+    font-family: $main-font;
+}
+
+a {
+    color: $black;
+    font-weight: $medium;
+    text-decoration: none;
+    transition: color 300ms cubic-bezier(0.25, 0.46, 0.45, 0.94);
+
+    &:hover {
+        color: $blue;
+    }
+}
+
+.h1 {
+    font-size: 2.7rem;
+    font-weight: $heavy;
+    line-height: 3.6rem;
+    margin: 0;
+}
+
+.h3 {
+    color: $blue;
+}
+
+.h3,
+p {
+    font-size: 1.6rem;
+    line-height: 2.7rem;
+    margin: .9rem 0;
+}
+
+p {
+    color: $gray-80;
+}
+
+
+/* Utilities
+–––––––––––––––––––––––––––––––––––––––––––––––––– */
+.card {
+    box-shadow: $shadow;
+    padding: 1.8rem;
+}
+
+.text-red {
+    color: $red;
+}
+
+.text-orange {
+    color: $orange;
+}
+
+.font-weight-roman{
+    font-weight: $roman;
+}
+
+.font-weight-medium{
+    font-weight: $medium;
+}
+
+.font-weight-heavy{
+    font-weight: $heavy;
+}
+
+.text-align-center {
+    text-align: center;
+}
+
+.hidden-mobile {
+    @media (max-width: $desktop){
+        display: none;
+    }
+}
+
+.hidden-desktop {
+    @media (min-width: $desktop){
+        display: none;
+    }
+}
+
+.hidden {
+    display: none;
+}
+
+.d-flex {
+    display: flex;
+}
+
+/* Animations
+–––––––––––––––––––––––––––––––––––––––––––––––––– */
+@keyframes fadeInUp {
+    0%,
+    10% {
+        opacity: 0;
+        transform: translateY(8rem);
+    }
+    100% {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+@keyframes slideInLeft {
+    0% {
+        opacity: 0;
+        transform: translateX(8rem);
+    }
+    10%,
+    90% {
+        opacity: 1;
+        transform: translateX(0);
+    }
+    100% {
+        opacity: 0;
+        transform: translateX(-8rem);
+    }
+}
+
+@keyframes fadeIn {
+    0%,
+    50% {
+        opacity: 0;
+    }
+    100% {
+        opacity: 1;
+    }
+}
+
+
+/* Homepage
+–––––––––––––––––––––––––––––––––––––––––––––––––– */
+.nav {
+    animation: fadeIn 3000ms;
+    text-align: center;
+
+    @media (min-width: $desktop) {
+        align-items: center;
+        display: flex;
+        justify-content: space-between;
+        grid-column: 1 / 13;
+    }
+
+    .links {
+        a {
+            font-weight: $heavy;
+            margin-left: 3rem;
+
+            &:first-of-type {
+                margin: 0;
+            }
+        }
+    }
+}
+
+.logo {
+    font-size: 2.4rem;
+    font-weight: $medium;
+    line-height: 3.6rem;
+    margin-bottom: .9rem;
+
+    @media (min-width: $desktop) {
+        margin-bottom: 0;
+    }
+
+    img {
+        height: 4.5rem;
+    }
+}
+
+.description,
+.features,
+.footer,
+.nav {
+    animation-timing-function: cubic-bezier(0.165, 0.84, 0.44, 1);
+}
+
+.description {
+    animation: fadeInUp 2000ms;
+    grid-column: 2 / 12;
+    text-align: center;
+    align-self: center;
+    padding-top: 10rem;
+}
+
+.features {
+    grid-column: 4 / 10;
+    padding: 5rem 0;
+    text-align: center;
+}
+
+.feature-list > .feature {
+    animation: fadeInUp 2000ms;
+    margin-bottom: 1.8rem;
+}
+
+.carousel > .feature {
+    height: 11.7rem;
+    // opacity: 0;
+    // transform: translateX(8rem);
+}
+
+.slide-in-left{
+    animation: slideInLeft 6000ms infinite;
+}
+
+.footer {
+    animation: fadeIn 3000ms;
+    grid-column: 3 / 11;
+}
+
+label {
+    color: $blue;
+    display: block;
+    font-size: 1.2rem;
+    font-weight: $heavy;
+    letter-spacing: 1px;
+    line-height: 1.2rem;
+    margin-bottom: .9em;
+    text-transform: uppercase;
+}
+
+input {
+    border: none;
+    color: $black;
+    display: block;
+    font-size: 1.8rem;
+    line-height: 1.8rem;
+    width: 100%;
+
+    &::-webkit-input-placeholder {
+        color: $gray-40;
+    }
+
+    &:-ms-input-placeholder {
+        color: $gray-40;
+    }
+
+    &::-moz-placeholder {
+        color: $gray-40;
+    }
+
+    &::placeholder {
+        color: $gray-40;
+    }
+
+    &:focus {
+        outline: 0;
+    }
+}
+
+.icon-button {
+    background: none;
+    border: none;
+
+    &:focus {
+        outline: none;
+    }
+
+    &:hover {
+        cursor: pointer;
+    }
+}
+
+.gallery {
+    @media (min-width: $desktop){
+        position: relative;
+        left: 20%;
+        transform: translate(-30%, -5%);
+    }
+}
+
+.image-group {
+    @media (min-width: $desktop){
+        display: flex;
+    }
+
+    img {
+        width: 100%;
+        margin-top: .45rem;
+
+        @media (min-width: $desktop) {
+            height: 250px;
+            width: 375px;
+            float: left;
+            margin: .9rem .9rem 0 0;
+        }
+    }
+}
