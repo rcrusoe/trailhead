@@ -296,10 +296,12 @@ p {
     margin-bottom: 1.8rem;
 }
 
+.carousel {
+    overflow: hidden;
+}
+
 .carousel > .feature {
     height: 11.7rem;
-    // opacity: 0;
-    // transform: translateX(8rem);
 }
 
 .slide-in-left{
